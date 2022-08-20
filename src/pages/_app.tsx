@@ -1,14 +1,15 @@
-import '../styles/globals.css';
+import Head, { AppProps } from 'next/app';
+import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
-import { NextUIProvider } from '@nextui-org/react';
+import theme from 'theme/theme';
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
-    // 2. Use at the root of your app
-    <NextUIProvider>
+    <ChakraProvider theme={theme}>
       <Component {...pageProps} />
-    </NextUIProvider>
+    </ChakraProvider>
   );
-}
+};
 
 export default MyApp;

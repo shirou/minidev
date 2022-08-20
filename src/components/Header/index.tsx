@@ -1,45 +1,24 @@
-import { useTheme, css, Row, Spacer, Text } from '@nextui-org/react';
-import { BsBrightnessHigh, BsGithub } from 'react-icons/bs';
-import { BiMenu } from 'react-icons/bi';
+import { ReactNode } from 'react';
+import { Box, Flex, Link, Button, useColorModeValue, Stack, useColorMode } from '@chakra-ui/react';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
-import { Search } from '@components/Search';
+import Search from '@components/Search';
 
-export const Header = () => {
-  const { theme } = useTheme();
-
+export default function Header() {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <header>
-      <nav className='navigation' style={{ height: '60px', border: '1px', position: 'sticky' }}>
-        <Row
-          justify='space-between'
-          fluid
-          css={{
-            border: '1px',
-            position: 'relative',
-            boxShadow: '0 1px 1px 0px rgba(9, 9, 9, 0.23)',
-            background: 'transparent none repeat scroll 0% 0%',
-            alignItems: 'center',
-          }}
-        >
-          <Row align='flex-start' css={{ width: '10%' }}>
-            <Text
-              css={{
-                color: theme!.colors.primary.value,
-                fontSize: '$md',
-                padding: '$2 $4',
-              }}
-            >
-              MiniDev
-            </Text>
-          </Row>
-          <Search />
-          <Row justify='flex-end' align='flex-end' gap={1} css={{ width: '20%' }}>
-            <BsGithub size={20} />
-            <BsBrightnessHigh size={20} />
-            <BiMenu size={20} />
-          </Row>
-        </Row>
-      </nav>
-    </header>
+    <Box bg={useColorModeValue('primary.100', 'primary.900')} px={4} alignContent='center'>
+      <Flex h={16} w='full' alignItems={'center'} justifyContent={'space-between'}>
+        <Box as={'a'} href={'/'}>
+          MiniDev
+        </Box>
+        <Search />
+        <Flex alignItems={'right'}>
+          <Stack direction={'row'} spacing={7}>
+            <Button onClick={toggleColorMode}>{colorMode === 'light' ? <FaMoon /> : <FaSun />}</Button>
+          </Stack>
+        </Flex>
+      </Flex>
+    </Box>
   );
-};
+}

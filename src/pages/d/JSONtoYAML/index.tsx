@@ -1,108 +1,66 @@
+import { useClipboard } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import useClipboard from 'react-use-clipboard';
 
-import { Container, Text, Grid, Spacer, Row, Textarea, Input} from '@nextui-org/react';
-import { CopyIconButton } from '@components/Common/CopyIconButton';
+import { Block }from '@/components/Common/Block';
+import { NumberInputForm } from '@components/Input/NumberInputForm';
+import { ToolLayout } from '@layouts/ToolLayout';
+import { getMeta } from '@/toolList';
+import { AutoResizeTextarea } from '@/components/AutoResizeTextarea';
 
-import { DefaultLayout } from '@layouts/default';
-import range from '@utils/range';
-import { MetaData } from '@pages/metadata';
+type ConvertType = 'toYAML' | 'toJSON';
+const defaultIndent = 2;
 
-const defaultLength = 13;
-const defaultRow = 5;
-const maxLength = 120;
+export const Meta = getMeta('JSONtoYAML');
 
-const misreadRegex = /[iloqILOQ019!]/g;
-const poolNumber = '0123456789';
-const poolLower = 'abcdefghijklmnopqrstuvwxyz';
-const poolUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const poolSpecial = '!@#$%^&*';
-
-export const Meta: MetaData = {
-  key: 'JSONtoYAML',
-  title: 'JSON to YAML',
+type JsonYamlComponentProps = {
+  convertType: ConvertType;
 };
 
-const JSONtoYAML = () => {
+export const JsonYamlComponent = (props: JsonYamlComponentProps) => {
+  const { convertType } = props;
+  const [input, setInput] = useState<string>('');
   const [output, setOutput] = useState<string>('');
-  const [optLength, setOptLength] = useState<number>(defaultLength);
-  const [optRow, setOptRow] = useState<number>(defaultRow);
-  const [flags, setFlags] = useState<string[]>(['number', 'upper', 'lower', 'special']);
+  const [indent, setIndent] = useState<number>(defaultIndent);
+  const { hasCopied, onCopy } = useClipboard(output);
 
-  // const { hasCopied, onCopy } = useClipboard(output);
-
-  
-  const handleOptLengthChange = (e: React.ChangeEvent<Input.FormElement>) => {
-    e.currentTarget.value && setOptLength(Number(e.currentTarget.value));
-  };
-  const handleOptRowChange = (e: React.ChangeEvent<HTMLInputElement>) => setOptRow(Number(e.currentTarget.value));
+  const handleChange = (e: any) => setInput(e.currentTarget.value);
+  const handleOptIndentChange = (valueAsString: string, valueAsNumber: number) => setIndent(valueAsNumber);
 
   useEffect(() => {
     const f = async () => {
-      if (flags.length === 0) {
-        return '';
+      const { toJson, toYaml } = await import('@/utils/json-yaml');
+      if (input === '') {
+        setOutput('');
+        return;
       }
-      // create character pool
-      let pool = flags.reduce((p: string, flag: string) => {
-        switch (flag) {
-          case 'number':
-            return p + poolNumber;
-          case 'upper':
-            return p + poolUpper;
-          case 'lower':
-            return p + poolLower;
-          case 'special':
-            return p + poolSpecial;
-          default:
-            return p;
+      try {
+        if (convertType === 'toYAML') {
+          setOutput(toYaml(input, indent));
+        } else {
+          setOutput(toJson(input, indent));
         }
-      }, '');
-      if (flags.includes('avoid')) {
-        pool = pool.replace(misreadRegex, '');
+      } catch (e: any) {
+        setOutput(e.message);
       }
-      const len = pool.length;
-      const out = range(1, optRow)
-        .map(() => {
-          return range(1, optLength)
-            .map(() => {
-              // pick random char from pool
-              return pool.charAt(Math.floor(Math.random() * len));
-            })
-            .join('');
-        })
-        .join('\n');
-      setOutput(out);
     };
     f();
-  }, [optLength, optRow, flags]);
+  }, [input, indent, convertType]);
 
   return (
-    <DefaultLayout>
-      <Container fluid>
-        <Text h2>{Meta.title}</Text>
-
-        {/* Output Box */}
-        <Container>
-          <Row css={{ alignItems: 'center' }}>
-            <Text h3>Output</Text>
-            <Spacer />
-            <CopyIconButton />
-          </Row>
-          <Textarea fullWidth></Textarea>
-        </Container>
-        <Spacer />
-        {/* Configuration part */}
-        <Grid.Container gap={2} justify='center'>
-          <Grid xs={6} md={6}>
-            <Input underlined value={optLength} labelLeft='Length' min={1} max={maxLength} onChange={handleOptLengthChange} type='number' />
-          </Grid>
-          <Grid xs={6} md={6}>
-            <Input underlined value={optRow} labelLeft='Row' min={1} max={maxLength} type='number' />
-          </Grid>
-        </Grid.Container>
-      </Container>
-    </DefaultLayout>
+    <ToolLayout title={Meta?.title} columns={{ sm: 1, md: 2 }}>
+      <Block title='Input'>
+        <AutoResizeTextarea value={input} h='auto' onChange={handleChange} minH={'100px'} />
+      </Block>
+      <Block title='Output'>
+        <AutoResizeTextarea value={output} isReadOnly h='auto' minH={'100px'} />
+      </Block>
+      <Block title='Config'>
+        <NumberInputForm label={'Length'} value={indent} min={0} max={16} onChange={handleOptIndentChange} />
+      </Block>
+    </ToolLayout>
   );
 };
 
-export default JSONtoYAML;
+const JsonYaml = () => <JsonYamlComponent convertType={'toYAML'} />;
+
+export default JsonYaml;
