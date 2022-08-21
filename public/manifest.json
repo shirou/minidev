@@ -1,6 +1,6 @@
 {
   "name": "MiniDev",
-  "short_name": "MiniDev",
+  "short_name": "MD",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
@@ -9,19 +9,15 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/android-chrome-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
       "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
+  "theme_color": "#d0dcfb",
+  "background_color": "#f7fafc",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait"
 }

@@ -12,9 +12,9 @@ import CardHeader from '@components/Card/CardHeader';
 import { getAllToolAsList } from '../toolList';
 
 const items = () => {
-  return getAllToolAsList().map((t) => {
+  return getAllToolAsList().map((t, i) => {
     return (
-      <WrapItem key={t.key} as={'a'} href={`/d/${t.key}`}>
+      <WrapItem key={i} as={'a'} href={`/d/${t.key}/`}>
         <Card p='1rem' my={{ sm: '24px', xl: '0px' }}>
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color='navy.500' fontWeight='bold'>

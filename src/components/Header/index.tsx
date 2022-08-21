@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Box, Flex, Link, Button, useColorModeValue, Stack, useColorMode } from '@chakra-ui/react';
+import { Box, Flex, Link, Button, useColorModeValue, Stack, Image, useColorMode } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 import Search from '@components/Search';
