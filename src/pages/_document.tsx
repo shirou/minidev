@@ -1,9 +1,10 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
 
-const APP_NAME = 'MiniDev'
-const APP_DESCRIPTION = 'Mini Tool kit for developer'
+const APP_NAME = 'MiniDev';
+const APP_DESCRIPTION = 'Mini Tool kit for developer';
 
 class MyDocument extends Document {
+  /*
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
     return {
@@ -11,14 +12,15 @@ class MyDocument extends Document {
       styles: [<>{initialProps.styles}</>],
     };
   }
+  */
 
   render() {
     return (
       <Html lang='en'>
         <Head>
-        <meta name='application-name' content={APP_NAME} />
-        <meta name='apple-mobile-web-app-capable' content='yes' />
-        <link rel="apple-touch-icon" href="/icon/icon-512x512.png"></link>
+          <meta name='application-name' content={APP_NAME} />
+          <meta name='apple-mobile-web-app-capable' content='yes' />
+          <link rel='apple-touch-icon' href='/icon/icon-512x512.png'></link>
           <meta name='apple-mobile-web-app-status-bar-style' content='default' />
           <meta name='apple-mobile-web-app-title' content={APP_NAME} />
           <meta name='description' content={APP_DESCRIPTION} />

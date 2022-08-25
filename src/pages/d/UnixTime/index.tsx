@@ -6,7 +6,7 @@ import { SimpleGrid, CheckboxGroup, Checkbox } from '@chakra-ui/react';
 
 import { NumberInputForm } from '@components/Input/NumberInputForm';
 import { CopyIconButton } from '@components/Common/CopyIconButton';
-import { Block }from '@/components/Common/Block';
+import { Block } from '@/components/Common/Block';
 import { ToolLayout } from '@layouts/ToolLayout';
 import { PrecisionType, getPresision, getDate } from '@utils/unixtime';
 import { getMeta } from '@/toolList';
