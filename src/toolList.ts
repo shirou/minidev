@@ -17,6 +17,14 @@ const toolList: { [key: string]: toolMeta } = {
     title: 'Unix Time',
     description: 'Convert unix timestamp',
   },
+  XMLFormatter: {
+    title: 'XML Formatter',
+    description: 'Format XML',
+  },
+  SQLFormatter: {
+    title: 'SQL Formatter',
+    description: 'Format SQL',
+  },
 };
 
 /*------  exported functions. Do not touch  -------------*/

@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import { FormControl, FormLabel, VStack, CheckboxGroup, Checkbox } from '@chakra-ui/react';
 
 import { NumberInputForm } from '@components/Input/NumberInputForm';
-import { Block }from '@/components/Common/Block';
+import { Block } from '@/components/Common/Block';
 import { ToolLayout } from '@layouts/ToolLayout';
 import range from '@utils/range';
 import { getMeta } from '@/toolList';
-import { AutoResizeTextarea } from '@/components/AutoResizeTextarea';
+import { TextBox } from '@/components/Common/TextBox';
 
 const defaultLength = 13;
 const defaultRow = 5;
@@ -72,7 +72,7 @@ const RandomString = () => {
   return (
     <ToolLayout title={Meta?.title} columns={{ sm: 1, md: 2 }}>
       <Block title='Output'>
-        <AutoResizeTextarea value={output} isReadOnly h='auto' fontFamily={'monospace'} />
+        <TextBox value={output} language={undefined} editable={false} height='auto' />
       </Block>
 
       <Block title='Config' w='300px'>
