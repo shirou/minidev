@@ -20,7 +20,7 @@ class MyDocument extends Document {
         <Head>
           <meta name='application-name' content={APP_NAME} />
           <meta name='apple-mobile-web-app-capable' content='yes' />
-          <link rel='apple-touch-icon' href='/icon/icon-512x512.png'></link>
+          <link rel='apple-touch-icon' href='/icons/icon-512x512.png'></link>
           <meta name='apple-mobile-web-app-status-bar-style' content='default' />
           <meta name='apple-mobile-web-app-title' content={APP_NAME} />
           <meta name='description' content={APP_DESCRIPTION} />

@@ -15,7 +15,7 @@ const items = () => {
   return getAllToolAsList().map((t, i) => {
     return (
       <WrapItem key={i} as={'a'} href={`/d/${t.key}/`}>
-        <Card p='1rem' my={{ sm: '24px', xl: '0px' }}>
+        <Card p='1rem' width={{ sm: '180px', xl: '120px' }} height={{ sm: '170px', xl: '100px' }} my={{ sm: '24px', xl: '0px' }}>
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color='navy.500' fontWeight='bold'>
               {t.title}
@@ -35,13 +35,13 @@ const items = () => {
 const Home: NextPage = () => {
   return (
     <ToolListLayout>
-      <Container maxW={'3xl'}>
+      <Container maxWidth={'3xl'}>
         <Flex flexDirection='column'>
           <Heading fontWeight={300} fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}>
             Minidev Tools
           </Heading>
           <Box py={{ base: '8px', md: '9px' }}>
-            <Wrap>{items()}</Wrap>
+            <Wrap justify='center'>{items()}</Wrap>
           </Box>
         </Flex>
       </Container>
