@@ -18,17 +18,20 @@ type ActionKey = {
   display: string;
   title: string;
   hotkey: string;
+  isMac: boolean;
 };
 
 const ActionKeyWindows = {
   display: 'Ctrl',
   title: 'Control',
   hotkey: 'ctrlKey',
+  isMac: false,
 };
 const ActionKeyMac = {
   display: '⌘',
   title: 'Command',
   hotkey: 'metaKey',
+  isMac: true,
 };
 
 export const useActionKey = () => {

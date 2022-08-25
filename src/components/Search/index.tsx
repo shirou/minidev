@@ -14,9 +14,10 @@ const Search = () => {
   const [activeSearchResultIndex, setActiveSearchResultIndex] = useState<number>(0);
   const [actionKey] = useActionKey();
 
-  useEventListener('keydown', (e) => {
-    if (e.key.toLowerCase() === 'k' && actionKey.hotkey) {
-      e.preventDefault();
+  useEventListener('keydown', (event) => {
+    const hotkey = actionKey.isMac ? 'metaKey' : 'ctrlKey';
+    if (event.key.toLowerCase() === 'k' && event[hotkey]) {
+      event.preventDefault();
       isOpen ? onClose() : onOpen();
     }
   });
