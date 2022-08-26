@@ -15,14 +15,14 @@ const items = () => {
   return getAllToolAsList().map((t, i) => {
     return (
       <WrapItem key={i} as={'a'} href={`/d/${t.key}/`}>
-        <Card p='1rem' width={{ sm: '180px', xl: '120px' }} height={{ sm: '170px', xl: '100px' }} my={{ sm: '24px', xl: '0px' }}>
+        <Card p='1rem' maxWidth={{ base: '200px', md: '160px' }} maxHeight={{ base: '170px' }} my={{ base: '12px', md: '24px' }}>
           <CardHeader p='12px 5px' mb='12px'>
-            <Text fontSize='lg' color='navy.500' fontWeight='bold'>
+            <Heading h={6} fontSize='lg' fontWeight='bold'>
               {t.title}
-            </Text>
+            </Heading>
           </CardHeader>
           <CardBody p='0px 5px'>
-            <Text fontSize='md' color='gray.500' fontWeight='400' mb='30px'>
+            <Text fontSize='md' color={['gray.500', 'white.50']} fontWeight='400' mb='30px'>
               {t.description}
             </Text>
           </CardBody>
