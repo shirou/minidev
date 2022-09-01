@@ -5,7 +5,7 @@ const ToolTitle = (props: HeadingProps) => {
   const { variant, title, children, ...rest } = props;
 
   return (
-    <Heading as='h3' fontSize='md'>
+    <Heading as='h3' fontSize='md' suppressHydrationWarning={true}>
       {title}
       {children}
     </Heading>

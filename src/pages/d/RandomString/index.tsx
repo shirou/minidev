@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import { FormControl, FormLabel, VStack, CheckboxGroup, Checkbox } from '@chakra-ui/react';
+import { FormControl, FormLabel, VStack, CheckboxGroup, Checkbox, Code } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 import { NumberInputForm } from '@components/Input/NumberInputForm';
 import { Block } from '@/components/Common/Block';
@@ -19,9 +20,10 @@ const poolLower = 'abcdefghijklmnopqrstuvwxyz';
 const poolUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const poolSpecial = '!@#$%^&*';
 
-export const Meta = getMeta('JSONtoYAML');
+export const Meta = getMeta('RandomString');
 
 const RandomString = () => {
+  const { t } = useTranslation('RandomString');
   const [output, setOutput] = useState<string>('');
   const [optLength, setOptLength] = useState<number>(defaultLength);
   const [optRow, setOptRow] = useState<number>(defaultRow);
@@ -70,7 +72,7 @@ const RandomString = () => {
   }, [optLength, optRow, flags]);
 
   return (
-    <ToolLayout title={Meta?.title} columns={{ sm: 1, md: 2 }}>
+    <ToolLayout title={t('title')} columns={{ sm: 1, md: 2 }}>
       <Block title='Output'>
         <TextBox value={output} language={undefined} editable={false} height='auto' />
       </Block>
@@ -95,7 +97,7 @@ const RandomString = () => {
               <Checkbox defaultChecked value='special'>
                 !@#$%^&*
               </Checkbox>
-              <Checkbox value='avoid'>Avoid letters that can be mistaken (e.g.: iloqILOQ019!)</Checkbox>
+              <Checkbox value='avoid'>Avoid letters that can be mistaken (<Code>iloqILOQ019!</Code>)</Checkbox>
             </CheckboxGroup>
           </VStack>
         </FormControl>
