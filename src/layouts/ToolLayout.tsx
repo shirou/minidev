@@ -10,7 +10,7 @@ type ToolLayoutLayoutProps = {
   children: React.ReactNode;
 };
 
-export function ToolLayout(props: ToolLayoutLayoutProps) {
+export const ToolLayout = (props: ToolLayoutLayoutProps) => {
   const { title, columns, children } = props;
   return (
     <Container maxW='container.xl' mx='auto'>

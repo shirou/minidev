@@ -25,9 +25,9 @@ const toolList: { [key: string]: toolMeta } = {
     title: 'SQL Formatter',
     description: 'Format SQL',
   },
-  x509Parser: {
-    title: 'x509 Parser',
-    description: 'Parse x509 cert',
+  Base64Decoder: {
+    title: 'Base64 Decoder',
+    description: 'Decode BASE64',
   },
 };
 
