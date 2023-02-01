@@ -97,7 +97,9 @@ const RandomString = () => {
               <Checkbox defaultChecked value='special'>
                 !@#$%^&*
               </Checkbox>
-              <Checkbox value='avoid'>Avoid letters that can be mistaken (<Code>iloqILOQ019!</Code>)</Checkbox>
+              <Checkbox value='avoid'>
+                Avoid letters that can be mistaken (<Code>iloqILOQ019!</Code>)
+              </Checkbox>
             </CheckboxGroup>
           </VStack>
         </FormControl>

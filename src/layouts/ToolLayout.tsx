@@ -24,4 +24,4 @@ export const ToolLayout = (props: ToolLayoutLayoutProps) => {
       <Footer />
     </Container>
   );
-}
+};

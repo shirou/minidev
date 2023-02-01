@@ -2,7 +2,7 @@ import { Table, Tbody, Tr, Td, useColorModeValue, useClipboard } from '@chakra-u
 import { FiCopy } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 
-import { SimpleGrid  } from '@chakra-ui/react';
+import { SimpleGrid } from '@chakra-ui/react';
 
 import { NumberInputForm } from '@components/Input/NumberInputForm';
 import { CopyIconButton } from '@components/Common/CopyIconButton';
@@ -32,7 +32,6 @@ const UnixTime = () => {
   const unixUtcCopy = useClipboard(unixUTC);
   const unixLocalCopy = useClipboard(unixLocal);
   const dateLocalCopy = useClipboard(dateLocal);
-
 
   const tableTitleColor = useColorModeValue('gray.100', 'whiteAlpha.200');
 
@@ -75,7 +74,6 @@ const UnixTime = () => {
     const unixLocal = d.toLocaleString(navigator.language, { timeZone: localTZ });
     setUnixLocal(unixLocal);
     unixLocalCopy.setValue(unixLocal);
-
   }, [unixTime, unixUtcCopy, unixLocalCopy]);
 
   // Date -> UnixTime
@@ -99,20 +97,14 @@ const UnixTime = () => {
               </Td>
               <Td pe={0}>{unixUTC}</Td>
               <td>
-                <CopyIconButton
-                  onCopy={unixUtcCopy.onCopy}
-                  hasCopied={unixUtcCopy.hasCopied}
-                  />
+                <CopyIconButton onCopy={unixUtcCopy.onCopy} hasCopied={unixUtcCopy.hasCopied} />
               </td>
             </Tr>
             <Tr>
               <Td bgColor={tableTitleColor}>Local</Td>
               <Td>{unixLocal}</Td>
               <td>
-                <CopyIconButton
-                  onCopy={unixLocalCopy.onCopy}
-                  hasCopied={unixLocalCopy.hasCopied}
-                  />
+                <CopyIconButton onCopy={unixLocalCopy.onCopy} hasCopied={unixLocalCopy.hasCopied} />
               </td>
             </Tr>
             <Tr>
@@ -142,10 +134,7 @@ const UnixTime = () => {
               </Td>
               <Td pe={0}>{dateLocal}</Td>
               <td>
-                <CopyIconButton 
-                  onCopy={dateLocalCopy.onCopy}
-                  hasCopied={dateLocalCopy.hasCopied}
-              />
+                <CopyIconButton onCopy={dateLocalCopy.onCopy} hasCopied={dateLocalCopy.hasCopied} />
               </td>
             </Tr>
           </Tbody>

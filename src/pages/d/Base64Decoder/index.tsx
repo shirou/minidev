@@ -22,7 +22,7 @@ const Base64Decoder = () => {
         return;
       }
       try {
-          setOutput(Buffer.from(input, 'base64').toString());
+        setOutput(Buffer.from(input, 'base64').toString());
       } catch (e: any) {
         setOutput(e.message);
       }

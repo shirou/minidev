@@ -8,9 +8,9 @@ import theme from 'theme/theme';
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <I18nextProvider i18n={i18n}>
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
     </I18nextProvider>
   );
 };
