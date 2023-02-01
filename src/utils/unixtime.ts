@@ -1,6 +1,6 @@
 export type PrecisionType = 'seconds' | 'milliseconds' | 'microseconds' | 'nanoseconds';
 
-export const getPresision = (i: number | undefined) => {
+export const getPrecision = (i: number | undefined) => {
   if (!i) {
     return 'seconds';
   }

@@ -1,14 +1,14 @@
-import { VStack, HStack, Table, Tbody, Tr, Td, useColorModeValue, useClipboard } from '@chakra-ui/react';
+import { Table, Tbody, Tr, Td, useColorModeValue, useClipboard } from '@chakra-ui/react';
 import { FiCopy } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 
-import { SimpleGrid, CheckboxGroup, Checkbox } from '@chakra-ui/react';
+import { SimpleGrid  } from '@chakra-ui/react';
 
 import { NumberInputForm } from '@components/Input/NumberInputForm';
 import { CopyIconButton } from '@components/Common/CopyIconButton';
 import { Block } from '@/components/Common/Block';
 import { ToolLayout } from '@layouts/ToolLayout';
-import { PrecisionType, getPresision, getDate } from '@utils/unixtime';
+import { PrecisionType, getPrecision, getDate } from '@utils/unixtime';
 import { getMeta } from '@/toolList';
 
 const localTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -32,6 +32,7 @@ const UnixTime = () => {
   const unixUtcCopy = useClipboard(unixUTC);
   const unixLocalCopy = useClipboard(unixLocal);
   const dateLocalCopy = useClipboard(dateLocal);
+
 
   const tableTitleColor = useColorModeValue('gray.100', 'whiteAlpha.200');
 
@@ -60,22 +61,30 @@ const UnixTime = () => {
     if (!unixTime) {
       return;
     }
-    const precision = getPresision(unixTime);
+    const precision = getPrecision(unixTime);
     setPrecision(precision);
 
     const d = getDate(unixTime, precision);
     if (!d) {
       return;
     }
-    setUnixUTC(d.toLocaleString(navigator.language, { timeZone: 'UTC' }));
-    setUnixLocal(d.toLocaleString(navigator.language, { timeZone: localTZ }));
-  }, [unixTime]);
+    const unixUTC = d.toLocaleString(navigator.language, { timeZone: 'UTC' });
+    setUnixUTC(unixUTC);
+    unixUtcCopy.setValue(unixUTC);
+
+    const unixLocal = d.toLocaleString(navigator.language, { timeZone: localTZ });
+    setUnixLocal(unixLocal);
+    unixLocalCopy.setValue(unixLocal);
+
+  }, [unixTime, unixUtcCopy, unixLocalCopy]);
 
   // Date -> UnixTime
   useEffect(() => {
     const d = new Date(year, month - 1, day, hour, min, second);
-    setDateLocal((d.getTime() / 1000.0).toString());
-  }, [year, month, day, hour, min, second]);
+    const t = (d.getTime() / 1000.0).toString();
+    setDateLocal(t);
+    dateLocalCopy.setValue(t);
+  }, [year, month, day, hour, min, second, setDateLocal, dateLocalCopy]);
   return (
     <ToolLayout title={Meta?.title} columns={{ sm: 1, md: 2 }}>
       <Block title='From Unix time'>
@@ -90,27 +99,24 @@ const UnixTime = () => {
               </Td>
               <Td pe={0}>{unixUTC}</Td>
               <td>
-                <CopyIconButton />
-                {/*
+                <CopyIconButton
                   onCopy={unixUtcCopy.onCopy}
                   hasCopied={unixUtcCopy.hasCopied}
-                */}
+                  />
               </td>
             </Tr>
             <Tr>
               <Td bgColor={tableTitleColor}>Local</Td>
               <Td>{unixLocal}</Td>
               <td>
-                <CopyIconButton />
-                {/*
-                icon={<FiCopy />}
+                <CopyIconButton
                   onCopy={unixLocalCopy.onCopy}
                   hasCopied={unixLocalCopy.hasCopied}
-                */}
+                  />
               </td>
             </Tr>
             <Tr>
-              <Td bgColor={tableTitleColor}>Presision</Td>
+              <Td bgColor={tableTitleColor}>Precision</Td>
               <Td>{precision}</Td>
             </Tr>
           </Tbody>
@@ -136,12 +142,10 @@ const UnixTime = () => {
               </Td>
               <Td pe={0}>{dateLocal}</Td>
               <td>
-                <CopyIconButton />
-                {/* 
-                  icon={<FiCopy />}
+                <CopyIconButton 
                   onCopy={dateLocalCopy.onCopy}
                   hasCopied={dateLocalCopy.hasCopied}
-                */}
+              />
               </td>
             </Tr>
           </Tbody>
