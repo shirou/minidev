@@ -12,8 +12,8 @@ import { urlEncoder } from './tools/urlEncoder'
 import { urlDecoder } from './tools/urlDecoder'
 
 // Deep merge function for English translations
-function mergeEn(...translations: any[]): any {
-  const result: any = {}
+function mergeEn(...translations: Record<string, any>[]): Record<string, any> {
+  const result: Record<string, any> = {}
   
   for (const translation of translations) {
     for (const key in translation) {

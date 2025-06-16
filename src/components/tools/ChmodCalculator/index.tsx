@@ -309,26 +309,6 @@ export default function ChmodCalculator() {
                   </button>
                 </div>
 
-                {/* Command */}
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="text-sm font-medium text-gray-700">{t('tools.chmodCalculator.command')}</div>
-                    <button
-                      onClick={() => handleCopy(`chmod ${result.octal}`, 'command')}
-                      className="flex items-center px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
-                    >
-                      {copied.command ? (
-                        <Check className="w-4 h-4 mr-1 text-green-600" />
-                      ) : (
-                        <Copy className="w-4 h-4 mr-1" />
-                      )}
-                      {t('common.copy')}
-                    </button>
-                  </div>
-                  <div className="p-3 bg-gray-900 text-green-400 rounded-md font-mono text-sm">
-                    chmod {result.octal} &lt;filename&gt;
-                  </div>
-                </div>
 
                 {/* Description */}
                 <div>

@@ -82,7 +82,7 @@ export default function XmlFormatter() {
     setError(null)
   }
 
-  const updateOptions = (key: keyof XmlFormatOptions, value: any) => {
+  const updateOptions = <K extends keyof XmlFormatOptions>(key: K, value: XmlFormatOptions[K]) => {
     setOptions(prev => ({ ...prev, [key]: value }))
   }
 

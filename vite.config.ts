@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import tailwindcss from '@tailwindcss/postcss'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -35,6 +36,11 @@ export default defineConfig({
       }
     })
   ],
+  css: {
+    postcss: {
+      plugins: [tailwindcss()],
+    },
+  },
   resolve: {
     alias: {
       '@': '/src',

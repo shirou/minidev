@@ -23,7 +23,6 @@ export const chmodCalculatorJa = {
       results: "結果",
       octal: "8進数",
       symbolic: "シンボリック",
-      command: "コマンド",
       resultDescription: "説明",
       securityWarnings: "セキュリティ警告",
       permissionGuide: "権限ガイド",

@@ -82,7 +82,7 @@ export default function SqlFormatter() {
     setError(null)
   }
 
-  const updateOptions = (key: keyof SqlFormatOptions, value: any) => {
+  const updateOptions = <K extends keyof SqlFormatOptions>(key: K, value: SqlFormatOptions[K]) => {
     setOptions(prev => ({ ...prev, [key]: value }))
   }
 

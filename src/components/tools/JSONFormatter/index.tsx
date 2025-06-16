@@ -7,7 +7,9 @@ import {
   validateJSON,
   sortJSONKeys,
   tryFixJSON,
-  type JSONFormatterResult
+  type JSONFormatterResult,
+  type JSONValidationResult,
+  type JSONValidationError
 } from '@/utils/converters/jsonFormatter'
 import { copyToClipboard } from '@/utils/helpers/clipboard'
 
@@ -17,10 +19,10 @@ export default function JSONFormatter() {
   const [output, setOutput] = useState('')
   const [mode, setMode] = useState<'format' | 'minify' | 'sort'>('format')
   const [indent, setIndent] = useState(2)
-  const [validation, setValidation] = useState<any>(null)
+  const [validation, setValidation] = useState<JSONValidationResult | null>(null)
   const [copied, setCopied] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [stats, setStats] = useState<any>(null)
+  const [stats, setStats] = useState<JSONFormatterResult['stats'] | null>(null)
 
   const processJSON = () => {
     if (!input.trim()) {
@@ -246,7 +248,7 @@ export default function JSONFormatter() {
           {/* Validation Errors */}
           {validation && !validation.isValid && validation.errors && (
             <div className="space-y-2">
-              {validation.errors.map((error: any, index: number) => (
+              {validation.errors.map((error: JSONValidationError, index: number) => (
                 <div key={index} className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-md p-2">
                   <div className="font-medium">Line {error.line}, Column {error.column}</div>
                   <div>{error.message}</div>

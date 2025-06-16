@@ -48,7 +48,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* Sidebar */}
       <aside 
         className={`
-          fixed top-0 left-0 h-full w-80 bg-white border-r border-gray-200 z-50
+          fixed top-0 left-0 h-full w-80 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 z-50
           transform transition-transform duration-300 ease-in-out
           lg:relative lg:translate-x-0 lg:z-auto
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
@@ -61,27 +61,27 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         aria-label="Tool navigation"
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">{t('navigation.tools')}</h2>
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{t('navigation.tools')}</h2>
           <button
             onClick={onClose}
-            className="lg:hidden p-1 rounded-md hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Close navigation"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
           </button>
         </div>
 
         {/* Search */}
-        <div className="p-4 border-b border-gray-200">
+        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
             <input
               type="text"
               placeholder={t('navigation.search')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               aria-label={t('navigation.search')}
             />
           </div>
@@ -99,7 +99,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           {searchQuery ? (
             // Filtered results
             <div className="p-4">
-              <h3 className="text-sm font-medium text-gray-700 mb-3">
+              <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                 {t('navigation.searchResults')} ({filteredTools.length})
               </h3>
               <div className="space-y-2">
@@ -117,7 +117,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                   />
                 ))}
                 {filteredTools.length === 0 && (
-                  <p className="text-sm text-gray-500 text-center py-8">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 text-center py-8">
                     {t('navigation.noResults')} "{searchQuery}"
                   </p>
                 )}
@@ -130,7 +130,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 const categoryTools = getToolsByCategory(category)
                 return (
                   <div key={category}>
-                    <h3 className="text-sm font-medium text-gray-700 mb-3">
+                    <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                       {category}
                     </h3>
                     <div className="space-y-2">
@@ -163,10 +163,10 @@ export function SidebarToggle({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors"
+      className="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
       aria-label="Open navigation menu"
     >
-      <Menu className="w-5 h-5" />
+      <Menu className="w-5 h-5 text-gray-600 dark:text-gray-400" />
     </button>
   )
 }

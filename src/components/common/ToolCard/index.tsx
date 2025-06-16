@@ -21,15 +21,15 @@ export default function ToolCard({ tool, size = 'medium', onClick }: ToolCardPro
   }
 
   const descriptionClasses = {
-    small: 'text-xs text-gray-600 mt-1',
-    medium: 'text-sm text-gray-600 mt-1',
-    large: 'text-sm text-gray-600 mt-2'
+    small: 'text-xs text-gray-600 dark:text-gray-400 mt-1',
+    medium: 'text-sm text-gray-600 dark:text-gray-400 mt-1',
+    large: 'text-sm text-gray-600 dark:text-gray-400 mt-2'
   }
 
   const categoryClasses = {
-    small: 'text-xs text-blue-600 font-medium',
-    medium: 'text-xs text-blue-600 font-medium',
-    large: 'text-sm text-blue-600 font-medium'
+    small: 'text-xs text-blue-600 dark:text-blue-400 font-medium',
+    medium: 'text-xs text-blue-600 dark:text-blue-400 font-medium',
+    large: 'text-sm text-blue-600 dark:text-blue-400 font-medium'
   }
 
   return (
@@ -40,11 +40,11 @@ export default function ToolCard({ tool, size = 'medium', onClick }: ToolCardPro
       onClick={onClick}
     >
       <div className={`
-        border border-gray-200 rounded-lg bg-white hover:shadow-md hover:border-gray-300 
+        border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 
         transition-all duration-200 group ${sizeClasses[size]}
       `}>
         <div className={categoryClasses[size]}>{tool.category}</div>
-        <h3 className={`${titleClasses[size]} text-gray-900 group-hover:text-blue-600 transition-colors`}>
+        <h3 className={`${titleClasses[size]} text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
           {tool.name}
         </h3>
         <p id={`tool-desc-${tool.id}`} className={descriptionClasses[size]}>

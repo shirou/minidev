@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --variant-dark: :where(.dark &);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -52,10 +56,6 @@
     border-color: hsl(var(--border));
   }
   body {
-    @apply bg-white text-gray-900;
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-  .dark body {
-    @apply bg-gray-900 text-gray-100;
   }
 }

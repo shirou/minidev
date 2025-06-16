@@ -8,7 +8,7 @@ export default function PageLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-900 text-gray-900 dark:text-white">
       <Header onMenuClick={() => setSidebarOpen(true)} />
       
       <div className="flex flex-1">

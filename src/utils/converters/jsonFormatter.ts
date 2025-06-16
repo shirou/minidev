@@ -23,7 +23,7 @@ export interface JSONValidationError {
 export interface JSONValidationResult {
   isValid: boolean
   errors: JSONValidationError[]
-  parsed?: any
+  parsed?: unknown
 }
 
 // Format JSON with proper indentation
@@ -170,7 +170,7 @@ export function sortJSONKeys(input: string, indent: number = 2): JSONFormatterRe
 }
 
 // Recursively sort object keys
-function sortObjectKeys(obj: any): any {
+function sortObjectKeys(obj: unknown): unknown {
   if (obj === null || typeof obj !== 'object') {
     return obj
   }
@@ -179,18 +179,18 @@ function sortObjectKeys(obj: any): any {
     return obj.map(sortObjectKeys)
   }
   
-  const sortedObj: any = {}
-  const keys = Object.keys(obj).sort()
+  const sortedObj: Record<string, unknown> = {}
+  const keys = Object.keys(obj as Record<string, unknown>).sort()
   
   for (const key of keys) {
-    sortedObj[key] = sortObjectKeys(obj[key])
+    sortedObj[key] = sortObjectKeys((obj as Record<string, unknown>)[key])
   }
   
   return sortedObj
 }
 
 // Calculate JSON statistics
-function calculateJSONStats(result: string, original: string, parsed: any) {
+function calculateJSONStats(result: string, original: string, parsed: unknown) {
   const lines = result.split('\n').length
   const characters = result.length
   const originalSize = new Blob([original]).size
@@ -211,12 +211,12 @@ function calculateJSONStats(result: string, original: string, parsed: any) {
 }
 
 // Count JSON elements recursively
-function countJSONElements(obj: any): { objects: number, arrays: number, keys: number } {
+function countJSONElements(obj: unknown): { objects: number, arrays: number, keys: number } {
   let objects = 0
   let arrays = 0
   let keys = 0
   
-  function count(value: any) {
+  function count(value: unknown) {
     if (value === null || typeof value !== 'object') {
       return
     }
@@ -226,9 +226,9 @@ function countJSONElements(obj: any): { objects: number, arrays: number, keys: n
       value.forEach(count)
     } else {
       objects++
-      const objectKeys = Object.keys(value)
+      const objectKeys = Object.keys(value as Record<string, unknown>)
       keys += objectKeys.length
-      objectKeys.forEach(key => count(value[key]))
+      objectKeys.forEach(key => count((value as Record<string, unknown>)[key]))
     }
   }
   
@@ -237,7 +237,7 @@ function countJSONElements(obj: any): { objects: number, arrays: number, keys: n
 }
 
 // Get user-friendly error message
-function getJSONErrorMessage(error: any, input: string): string {
+function getJSONErrorMessage(error: unknown, input: string): string {
   if (error instanceof SyntaxError) {
     const match = error.message.match(/at position (\d+)/)
     if (match) {
@@ -247,7 +247,7 @@ function getJSONErrorMessage(error: any, input: string): string {
     }
   }
   
-  return error.message || 'Invalid JSON format'
+  return (error as Error)?.message || 'Invalid JSON format'
 }
 
 // Parse JSON error to get line and column information

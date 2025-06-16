@@ -7,7 +7,9 @@ import {
   extractQueryParams,
   isValidURLEncoding,
   URL_EXAMPLES,
-  type URLConversionResult
+  type URLConversionResult,
+  type URLAnalysis,
+  type EncodingStats
 } from '@/utils/converters/urlConverter'
 import { copyToClipboard } from '@/utils/helpers/clipboard'
 
@@ -18,8 +20,8 @@ export default function URLDecoder() {
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [stats, setStats] = useState<any>(null)
-  const [analysis, setAnalysis] = useState<any>(null)
+  const [stats, setStats] = useState<EncodingStats | null>(null)
+  const [analysis, setAnalysis] = useState<URLAnalysis | null>(null)
   const [queryParams, setQueryParams] = useState<{ [key: string]: string } | null>(null)
 
   const processInput = () => {
@@ -50,7 +52,7 @@ export default function URLDecoder() {
       
       if (result.success && result.result !== undefined) {
         setOutput(result.result)
-        setStats(result.stats)
+        setStats(result.stats || null)
         
         // Analyze the decoded result
         const urlAnalysis = analyzeURL(result.result)

@@ -22,8 +22,23 @@ export interface URLAnalysis {
   }
 }
 
+export interface URLEncoderOptions {
+  encodeSpaceAsPlus: boolean
+  encodeAllCharacters: boolean
+}
+
+export interface EncodingStats {
+  originalLength: number
+  resultLength: number
+  changePercentage: number
+  totalCharacters?: number
+  encodedCharacters?: number
+  encodingPercentage?: number
+  specialCharacters?: string[]
+}
+
 // URL encode text
-export function encodeURL(input: string, options: { encodeSpaceAsPlus?: boolean, encodeAllCharacters?: boolean } = {}): URLConversionResult {
+export function encodeURL(input: string, options: Partial<URLEncoderOptions> = {}): URLConversionResult {
   try {
     if (input === '') {
       return {

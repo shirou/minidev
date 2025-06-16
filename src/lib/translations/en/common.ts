@@ -29,5 +29,12 @@ export const commonEn = {
     sidebarNote: "Use the sidebar to navigate and search through all available tools",
     privacyTitle: "All tools are privacy-focused",
     privacyDescription: "All processing happens locally in your browser. No data is sent to any server, ensuring complete privacy and security for your sensitive information."
+  },
+  theme: {
+    light: "Light",
+    dark: "Dark", 
+    system: "System",
+    currentTheme: "Current theme",
+    clickToToggle: "Click to toggle theme"
   }
 }

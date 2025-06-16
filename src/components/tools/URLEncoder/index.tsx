@@ -7,7 +7,9 @@ import {
   getEncodingStats,
   getEncodingExplanation,
   URL_EXAMPLES,
-  type URLConversionResult
+  type URLConversionResult,
+  type URLEncoderOptions,
+  type EncodingStats
 } from '@/utils/converters/urlConverter'
 import { copyToClipboard } from '@/utils/helpers/clipboard'
 
@@ -18,8 +20,8 @@ export default function URLEncoder() {
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [stats, setStats] = useState<any>(null)
-  const [options, setOptions] = useState({
+  const [stats, setStats] = useState<EncodingStats | null>(null)
+  const [options, setOptions] = useState<URLEncoderOptions>({
     encodeSpaceAsPlus: false,
     encodeAllCharacters: false
   })
@@ -40,11 +42,14 @@ export default function URLEncoder() {
       
       if (result.success && result.result !== undefined) {
         setOutput(result.result)
-        setStats(result.stats)
         
         // Get additional encoding stats
         const encodingStats = getEncodingStats(result.result)
-        setStats((prev: any) => ({ ...prev, ...encodingStats }))
+        const combinedStats: EncodingStats = {
+          ...(result.stats || { originalLength: 0, resultLength: 0, changePercentage: 0 }),
+          ...encodingStats
+        }
+        setStats(combinedStats)
       } else {
         setError(result.error || 'Encoding failed')
         setOutput('')
@@ -108,7 +113,7 @@ export default function URLEncoder() {
             <input
               type="checkbox"
               checked={options.encodeSpaceAsPlus}
-              onChange={(e) => setOptions((prev: any) => ({ ...prev, encodeSpaceAsPlus: e.target.checked }))}
+              onChange={(e) => setOptions((prev: URLEncoderOptions) => ({ ...prev, encodeSpaceAsPlus: e.target.checked }))}
               className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <span className="text-sm text-gray-700">{t('tools.urlEncoder.encodeSpaceAsPlus')}</span>
@@ -117,7 +122,7 @@ export default function URLEncoder() {
             <input
               type="checkbox"
               checked={options.encodeAllCharacters}
-              onChange={(e) => setOptions((prev: any) => ({ ...prev, encodeAllCharacters: e.target.checked }))}
+              onChange={(e) => setOptions((prev: URLEncoderOptions) => ({ ...prev, encodeAllCharacters: e.target.checked }))}
               className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             />
             <span className="text-sm text-gray-700">{t('tools.urlEncoder.encodeAllCharacters')}</span>

@@ -29,5 +29,12 @@ export const commonJa = {
     sidebarNote: "サイドバーを使用してツールをナビゲート・検索できます",
     privacyTitle: "すべてのツールはプライバシーを重視",
     privacyDescription: "すべての処理はブラウザ内で行われます。データはサーバーに送信されず、機密情報の完全なプライバシーとセキュリティを保証します。"
+  },
+  theme: {
+    light: "ライト",
+    dark: "ダーク",
+    system: "システム",
+    currentTheme: "現在のテーマ", 
+    clickToToggle: "クリックしてテーマを切り替え"
   }
 }

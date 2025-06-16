@@ -12,10 +12,10 @@ export default function HomePage() {
         <h1 id="page-title" className="text-3xl font-bold tracking-tight">
           {t('home.title')}
         </h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
           {t('home.subtitle')}
         </p>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
           {t('home.sidebarNote')}
         </p>
       </section>
@@ -30,7 +30,7 @@ export default function HomePage() {
           
           return (
             <div key={category} className="mb-8">
-              <h3 className="text-lg font-semibold mb-4 text-gray-800" id={`category-${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
+              <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200" id={`category-${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
                 {category}
               </h3>
               
@@ -50,11 +50,11 @@ export default function HomePage() {
         })}
       </section>
 
-      <section className="bg-gray-50 rounded-lg p-6 mt-12">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">
+      <section className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mt-12">
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
           {t('home.privacyTitle')}
         </h3>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-400">
           {t('home.privacyDescription')}
         </p>
       </section>

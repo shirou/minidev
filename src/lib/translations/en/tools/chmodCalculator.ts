@@ -23,7 +23,6 @@ export const chmodCalculatorEn = {
       results: "Results",
       octal: "Octal",
       symbolic: "Symbolic",
-      command: "Command",
       resultDescription: "Description",
       securityWarnings: "Security Warnings",
       permissionGuide: "Permission Guide",
