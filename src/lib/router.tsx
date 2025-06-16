@@ -13,6 +13,11 @@ import XmlFormatterPage from '@/pages/tools/xml-formatter'
 import SqlFormatterPage from '@/pages/tools/sql-formatter'
 import Base64EncoderPage from '@/pages/tools/base64-encoder'
 import Base64DecoderPage from '@/pages/tools/base64-decoder'
+import UUIDGeneratorPage from '@/pages/tools/uuid-generator'
+import JSONFormatterPage from '@/pages/tools/json-formatter'
+import ChmodCalculatorPage from '@/pages/tools/chmod-calculator'
+import URLEncoderPage from '@/pages/tools/url-encoder'
+import URLDecoderPage from '@/pages/tools/url-decoder'
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +70,26 @@ export const router = createBrowserRouter([
           {
             path: 'base64-decoder',
             element: <Base64DecoderPage />,
+          },
+          {
+            path: 'uuid-generator',
+            element: <UUIDGeneratorPage />,
+          },
+          {
+            path: 'json-formatter',
+            element: <JSONFormatterPage />,
+          },
+          {
+            path: 'chmod-calculator',
+            element: <ChmodCalculatorPage />,
+          },
+          {
+            path: 'url-encoder',
+            element: <URLEncoderPage />,
+          },
+          {
+            path: 'url-decoder',
+            element: <URLDecoderPage />,
           },
         ],
       },

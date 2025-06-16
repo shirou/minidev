@@ -77,6 +77,41 @@ export const TOOLS: Tool[] = [
     category: TOOL_CATEGORIES.ENCODER_DECODER,
     path: '/tools/base64-decoder',
   },
+  {
+    id: 'uuid-generator',
+    name: 'UUID Generator',
+    description: 'Generate UUIDs of all versions (v1-v7)',
+    category: TOOL_CATEGORIES.GENERATOR,
+    path: '/tools/uuid-generator',
+  },
+  {
+    id: 'json-formatter',
+    name: 'JSON Formatter',
+    description: 'Format, minify, validate, and sort JSON data',
+    category: TOOL_CATEGORIES.FORMATTER,
+    path: '/tools/json-formatter',
+  },
+  {
+    id: 'chmod-calculator',
+    name: 'Chmod Calculator',
+    description: 'Calculate Unix file permissions with visual interface',
+    category: TOOL_CATEGORIES.CONVERTER,
+    path: '/tools/chmod-calculator',
+  },
+  {
+    id: 'url-encoder',
+    name: 'URL Encoder',
+    description: 'Encode text for safe use in URLs',
+    category: TOOL_CATEGORIES.ENCODER_DECODER,
+    path: '/tools/url-encoder',
+  },
+  {
+    id: 'url-decoder',
+    name: 'URL Decoder',
+    description: 'Decode percent-encoded URLs to readable text',
+    category: TOOL_CATEGORIES.ENCODER_DECODER,
+    path: '/tools/url-decoder',
+  },
 ]
 
 export const getToolsByCategory = (category: string) => 

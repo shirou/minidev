@@ -5,6 +5,11 @@ import { unixTimeEn } from './tools/unixTime'
 import { xmlFormatterEn } from './tools/xmlFormatter'
 import { sqlFormatterEn } from './tools/sqlFormatter'
 import { base64En } from './tools/base64'
+import { uuidEn } from './tools/uuid'
+import { jsonFormatterEn } from './tools/jsonFormatter'
+import { chmodCalculatorEn } from './tools/chmodCalculator'
+import { urlEncoder } from './tools/urlEncoder'
+import { urlDecoder } from './tools/urlDecoder'
 
 // Deep merge function for English translations
 function mergeEn(...translations: any[]): any {
@@ -31,5 +36,10 @@ export const enTranslations = mergeEn(
   unixTimeEn,
   xmlFormatterEn,
   sqlFormatterEn,
-  base64En
+  base64En,
+  uuidEn,
+  jsonFormatterEn,
+  chmodCalculatorEn,
+  { tools: { urlEncoder } },
+  { tools: { urlDecoder } }
 )

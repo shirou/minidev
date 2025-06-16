@@ -5,6 +5,11 @@ import { unixTimeJa } from './tools/unixTime'
 import { xmlFormatterJa } from './tools/xmlFormatter'
 import { sqlFormatterJa } from './tools/sqlFormatter'
 import { base64Ja } from './tools/base64'
+import { uuidJa } from './tools/uuid'
+import { jsonFormatterJa } from './tools/jsonFormatter'
+import { chmodCalculatorJa } from './tools/chmodCalculator'
+import { urlEncoder } from './tools/urlEncoder'
+import { urlDecoder } from './tools/urlDecoder'
 
 // Deep merge function for Japanese translations
 function mergeJa(...translations: any[]): any {
@@ -31,5 +36,10 @@ export const jaTranslations = mergeJa(
   unixTimeJa,
   xmlFormatterJa,
   sqlFormatterJa,
-  base64Ja
+  base64Ja,
+  uuidJa,
+  jsonFormatterJa,
+  chmodCalculatorJa,
+  { tools: { urlEncoder } },
+  { tools: { urlDecoder } }
 )
