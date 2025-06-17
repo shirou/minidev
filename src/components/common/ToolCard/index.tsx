@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import type { Tool } from '@/utils/constants/tools'
 
 interface ToolCardProps {
@@ -8,6 +9,8 @@ interface ToolCardProps {
 }
 
 export default function ToolCard({ tool, size = 'medium', onClick }: ToolCardProps) {
+  const { t } = useTranslation()
+  
   const sizeClasses = {
     small: 'p-3',
     medium: 'p-4',
@@ -43,12 +46,12 @@ export default function ToolCard({ tool, size = 'medium', onClick }: ToolCardPro
         border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 
         transition-all duration-200 group ${sizeClasses[size]}
       `}>
-        <div className={categoryClasses[size]}>{tool.category}</div>
+        <div className={categoryClasses[size]}>{t(`toolCategories.${tool.category}`, tool.category)}</div>
         <h3 className={`${titleClasses[size]} text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
-          {tool.name}
+          {t(`toolList.${tool.id}.name`, tool.name)}
         </h3>
         <p id={`tool-desc-${tool.id}`} className={descriptionClasses[size]}>
-          {tool.description}
+          {t(`toolList.${tool.id}.description`, tool.description)}
         </p>
       </div>
     </Link>

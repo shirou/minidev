@@ -11,6 +11,7 @@ export const TOOL_CATEGORIES = {
   CONVERTER: 'Converter', 
   FORMATTER: 'Formatter',
   ENCODER_DECODER: 'Encoder/Decoder',
+  TEXT_TOOLS: 'Text Tools',
 } as const
 
 export const TOOLS: Tool[] = [
@@ -111,6 +112,69 @@ export const TOOLS: Tool[] = [
     description: 'Decode percent-encoded URLs to readable text',
     category: TOOL_CATEGORIES.ENCODER_DECODER,
     path: '/tools/url-decoder',
+  },
+  {
+    id: 'html-encoder',
+    name: 'HTML Encoder/Decoder',
+    description: 'Encode and decode HTML special characters and entities',
+    category: TOOL_CATEGORIES.ENCODER_DECODER,
+    path: '/tools/html-encoder',
+  },
+  {
+    id: 'case-converter',
+    name: 'Case Converter',
+    description: 'Convert text between different naming conventions and case styles',
+    category: TOOL_CATEGORIES.CONVERTER,
+    path: '/tools/case-converter',
+  },
+  {
+    id: 'number-base-converter',
+    name: 'Number Base Converter',
+    description: 'Convert numbers between binary, octal, decimal, and hexadecimal',
+    category: TOOL_CATEGORIES.CONVERTER,
+    path: '/tools/number-base-converter',
+  },
+  {
+    id: 'temperature-converter',
+    name: 'Temperature Converter',
+    description: 'Convert temperatures between Celsius, Fahrenheit, Kelvin, and Rankine',
+    category: TOOL_CATEGORIES.CONVERTER,
+    path: '/tools/temperature-converter',
+  },
+  {
+    id: 'data-size-converter',
+    name: 'Data Size Converter',
+    description: 'Convert between bytes, kilobytes, megabytes, gigabytes, and more',
+    category: TOOL_CATEGORIES.CONVERTER,
+    path: '/tools/data-size-converter',
+  },
+  {
+    id: 'lorem-ipsum-generator',
+    name: 'Lorem Ipsum Generator',
+    description: 'Generate placeholder text for design and development projects',
+    category: TOOL_CATEGORIES.GENERATOR,
+    path: '/tools/lorem-ipsum-generator',
+  },
+  {
+    id: 'word-counter',
+    name: 'Word Counter',
+    description: 'Analyze text statistics including word count, character count, and readability',
+    category: TOOL_CATEGORIES.TEXT_TOOLS,
+    path: '/tools/word-counter',
+  },
+  {
+    id: 'string-utilities',
+    name: 'String Utilities',
+    description: 'Process and manipulate text with various string operations',
+    category: TOOL_CATEGORIES.TEXT_TOOLS,
+    path: '/tools/string-utilities',
+  },
+  {
+    id: 'wifi-qrcode-generator',
+    name: 'QR Code Generator',
+    description: 'Generate QR codes for WiFi, URLs, contacts, and more',
+    category: TOOL_CATEGORIES.GENERATOR,
+    path: '/tools/wifi-qrcode-generator',
   },
 ]
 

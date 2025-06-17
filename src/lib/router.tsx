@@ -18,6 +18,15 @@ import JSONFormatterPage from '@/pages/tools/json-formatter'
 import ChmodCalculatorPage from '@/pages/tools/chmod-calculator'
 import URLEncoderPage from '@/pages/tools/url-encoder'
 import URLDecoderPage from '@/pages/tools/url-decoder'
+import HtmlEncoderPage from '@/pages/tools/html-encoder'
+import CaseConverterPage from '@/pages/tools/case-converter'
+import NumberBaseConverterPage from '@/pages/tools/number-base-converter'
+import TemperatureConverterPage from '@/pages/tools/temperature-converter'
+import DataSizeConverterPage from '@/pages/tools/data-size-converter'
+import LoremIpsumGeneratorPage from '@/pages/tools/lorem-ipsum-generator'
+import WordCounterPage from '@/pages/tools/word-counter'
+import StringUtilitiesPage from '@/pages/tools/string-utilities'
+import WiFiQRCodeGeneratorPage from '@/pages/tools/wifi-qrcode-generator'
 
 export const router = createBrowserRouter([
   {
@@ -90,6 +99,42 @@ export const router = createBrowserRouter([
           {
             path: 'url-decoder',
             element: <URLDecoderPage />,
+          },
+          {
+            path: 'html-encoder',
+            element: <HtmlEncoderPage />,
+          },
+          {
+            path: 'case-converter',
+            element: <CaseConverterPage />,
+          },
+          {
+            path: 'number-base-converter',
+            element: <NumberBaseConverterPage />,
+          },
+          {
+            path: 'temperature-converter',
+            element: <TemperatureConverterPage />,
+          },
+          {
+            path: 'data-size-converter',
+            element: <DataSizeConverterPage />,
+          },
+          {
+            path: 'lorem-ipsum-generator',
+            element: <LoremIpsumGeneratorPage />,
+          },
+          {
+            path: 'word-counter',
+            element: <WordCounterPage />,
+          },
+          {
+            path: 'string-utilities',
+            element: <StringUtilitiesPage />,
+          },
+          {
+            path: 'wifi-qrcode-generator',
+            element: <WiFiQRCodeGeneratorPage />,
           },
         ],
       },

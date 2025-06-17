@@ -10,6 +10,15 @@ import { jsonFormatterEn } from './tools/jsonFormatter'
 import { chmodCalculatorEn } from './tools/chmodCalculator'
 import { urlEncoder } from './tools/urlEncoder'
 import { urlDecoder } from './tools/urlDecoder'
+import { htmlEn } from './tools/html'
+import { caseEn } from './tools/case'
+import { numberBaseEn } from './tools/numberBase'
+import { temperatureEn } from './tools/temperature'
+import { dataSizeEn } from './tools/dataSize'
+import { loremEn } from './tools/lorem'
+import { wordCounterEn } from './tools/wordCounter'
+import { stringUtilsEn } from './tools/stringUtils'
+import { qrcodeEn } from './tools/qrcode'
 
 // Deep merge function for English translations
 function mergeEn(...translations: Record<string, any>[]): Record<string, any> {
@@ -41,5 +50,14 @@ export const enTranslations = mergeEn(
   jsonFormatterEn,
   chmodCalculatorEn,
   { tools: { urlEncoder } },
-  { tools: { urlDecoder } }
+  { tools: { urlDecoder } },
+  htmlEn,
+  caseEn,
+  numberBaseEn,
+  temperatureEn,
+  dataSizeEn,
+  loremEn,
+  wordCounterEn,
+  stringUtilsEn,
+  qrcodeEn
 )

@@ -131,7 +131,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 return (
                   <div key={category}>
                     <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                      {category}
+                      {t(`toolCategories.${category}`, category)}
                     </h3>
                     <div className="space-y-2">
                       {categoryTools.map((tool) => (

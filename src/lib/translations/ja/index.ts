@@ -10,6 +10,15 @@ import { jsonFormatterJa } from './tools/jsonFormatter'
 import { chmodCalculatorJa } from './tools/chmodCalculator'
 import { urlEncoder } from './tools/urlEncoder'
 import { urlDecoder } from './tools/urlDecoder'
+import { htmlJa } from './tools/html'
+import { caseJa } from './tools/case'
+import { numberBaseJa } from './tools/numberBase'
+import { temperatureJa } from './tools/temperature'
+import { dataSizeJa } from './tools/dataSize'
+import { loremJa } from './tools/lorem'
+import { wordCounterJa } from './tools/wordCounter'
+import { stringUtilsJa } from './tools/stringUtils'
+import { qrcodeJa } from './tools/qrcode'
 
 // Deep merge function for Japanese translations
 function mergeJa(...translations: Record<string, any>[]): Record<string, any> {
@@ -41,5 +50,14 @@ export const jaTranslations = mergeJa(
   jsonFormatterJa,
   chmodCalculatorJa,
   { tools: { urlEncoder } },
-  { tools: { urlDecoder } }
+  { tools: { urlDecoder } },
+  htmlJa,
+  caseJa,
+  numberBaseJa,
+  temperatureJa,
+  dataSizeJa,
+  loremJa,
+  wordCounterJa,
+  stringUtilsJa,
+  qrcodeJa
 )

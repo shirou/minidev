@@ -31,7 +31,7 @@ export default function HomePage() {
           return (
             <div key={category} className="mb-8">
               <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200" id={`category-${category.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
-                {category}
+                {t(`toolCategories.${category}`, category)}
               </h3>
               
               <div 
