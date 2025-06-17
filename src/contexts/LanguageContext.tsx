@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-type Language = 'en' | 'ja'
+type Language = 'en' | 'ja' | 'id' | 'zh-TW' | 'zh-CN'
 
 interface LanguageContextType {
   language: Language
@@ -18,6 +18,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const languages = [
     { code: 'en' as const, name: 'English' },
     { code: 'ja' as const, name: '日本語' },
+    { code: 'id' as const, name: 'Bahasa Indonesia' },
+    { code: 'zh-TW' as const, name: '繁體中文' },
+    { code: 'zh-CN' as const, name: '简体中文' },
   ]
 
   const setLanguage = (lang: Language) => {

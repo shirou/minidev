@@ -58,6 +58,9 @@ MiniDev is a blazing-fast Progressive Web App that puts essential developer tool
 Full internationalization support with:
 - English (Primary)
 - Japanese (日本語)
+- Indonesian (Bahasa Indonesia)
+- Traditional Chinese (繁體中文)
+- Simplified Chinese (简体中文)
 
 Easy to extend with additional languages through structured translation files.
 
