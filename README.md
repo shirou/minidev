@@ -18,20 +18,40 @@ MiniDev is a blazing-fast Progressive Web App that puts essential developer tool
 
 ## Powerful Tools Arsenal
 
-### Data Conversion
+### Data Conversion & Transformation
 - **JSON to YAML Converter**: Transform JSON to YAML with smart formatting
 - **YAML to JSON Converter**: Convert YAML to JSON with prettification options
+- **JSON Formatter**: Beautify and minify JSON with proper indentation
+- **Number Base Converter**: Convert between binary, octal, decimal, and hexadecimal
+- **Temperature Converter**: Convert between Celsius, Fahrenheit, and Kelvin
+- **Data Size Converter**: Convert between bytes, KB, MB, GB, TB and other units
+
+### Time & Date Tools
 - **To Unix Time Converter**: Convert human dates to Unix timestamps with precision control
 - **From Unix Time Converter**: Decode Unix timestamps to readable dates in multiple formats
 
-### Text Processing
+### Text Processing & Generation
 - **Random String Generator**: Generate secure passwords, tokens, and identifiers with customizable options
+- **UUID Generator**: Generate UUID/GUID identifiers for development
+- **Lorem Ipsum Generator**: Generate placeholder text for design and testing
+- **Word Counter**: Count characters, words, and analyze text readability
+- **String Utilities**: Trim, replace, split, and manipulate text strings
+- **Case Converter**: Convert text between camelCase, snake_case, PascalCase, and more
+
+### Encoding & Decoding
 - **Base64 Encoder**: Encode text and files to Base64 format
 - **Base64 Decoder**: Decode Base64 strings back to text and files
+- **URL Encoder**: Encode URLs and query parameters
+- **URL Decoder**: Decode URL-encoded strings
+- **HTML Encoder/Decoder**: Escape and unescape HTML special characters
 
 ### Code Formatting
 - **XML Formatter**: Beautify and minify XML with customizable indentation
 - **SQL Formatter**: Format SQL queries with keyword casing and line breaking options
+
+### System & Development Tools
+- **Chmod Calculator**: Calculate Unix file permissions with visual representation
+- **QR Code Generator**: Generate QR codes for URLs, WiFi credentials, and contact information
 
 ## International Ready
 
