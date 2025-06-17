@@ -133,6 +133,10 @@ export const commonId = {
     "wifi-qrcode-generator": {
       name: "Generator QR Code WiFi",
       description: "Buat kode QR untuk WiFi, URL, email, dan lainnya"
+    },
+    "color-converter": {
+      name: "Konverter Warna",
+      description: "Konversi warna antara format HEX, RGB, HSL, HSV, dan CMYK"
     }
   }
 }

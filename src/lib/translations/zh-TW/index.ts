@@ -19,6 +19,7 @@ import { loremZhTW } from './tools/lorem'
 import { wordCounterZhTW } from './tools/wordCounter'
 import { stringUtilsZhTW } from './tools/stringUtils'
 import { qrcodeZhTW } from './tools/qrcode'
+import { colorConverterZhTW } from './tools/colorConverter'
 
 // Deep merge function for Traditional Chinese translations
 function mergeZhTW(...translations: Record<string, any>[]): Record<string, any> {
@@ -59,5 +60,6 @@ export const zhTWTranslations = mergeZhTW(
   loremZhTW,
   wordCounterZhTW,
   stringUtilsZhTW,
-  qrcodeZhTW
+  qrcodeZhTW,
+  colorConverterZhTW
 )

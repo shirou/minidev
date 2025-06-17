@@ -19,6 +19,7 @@ import { loremId } from './tools/lorem'
 import { wordCounterId } from './tools/wordCounter'
 import { stringUtilsId } from './tools/stringUtils'
 import { qrcodeId } from './tools/qrcode'
+import { colorConverterId } from './tools/colorConverter'
 
 // Deep merge function for Indonesian translations
 function mergeId(...translations: Record<string, any>[]): Record<string, any> {
@@ -59,5 +60,6 @@ export const idTranslations = mergeId(
   loremId,
   wordCounterId,
   stringUtilsId,
-  qrcodeId
+  qrcodeId,
+  colorConverterId
 )

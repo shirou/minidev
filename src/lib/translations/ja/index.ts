@@ -19,6 +19,7 @@ import { loremJa } from './tools/lorem'
 import { wordCounterJa } from './tools/wordCounter'
 import { stringUtilsJa } from './tools/stringUtils'
 import { qrcodeJa } from './tools/qrcode'
+import { colorConverterJa } from './tools/colorConverter'
 
 // Deep merge function for Japanese translations
 function mergeJa(...translations: Record<string, any>[]): Record<string, any> {
@@ -59,5 +60,6 @@ export const jaTranslations = mergeJa(
   loremJa,
   wordCounterJa,
   stringUtilsJa,
-  qrcodeJa
+  qrcodeJa,
+  colorConverterJa
 )

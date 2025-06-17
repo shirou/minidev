@@ -133,6 +133,10 @@ export const commonZhTW = {
     "wifi-qrcode-generator": {
       name: "WiFi QR 碼生成器",
       description: "為 WiFi、URL、電子郵件等生成 QR 碼"
+    },
+    "color-converter": {
+      name: "顏色轉換器",
+      description: "在HEX、RGB、HSL、HSV和CMYK格式之間轉換顏色"
     }
   }
 }

@@ -19,6 +19,7 @@ import { loremZhCN } from './tools/lorem'
 import { wordCounterZhCN } from './tools/wordCounter'
 import { stringUtilsZhCN } from './tools/stringUtils'
 import { qrcodeZhCN } from './tools/qrcode'
+import { colorConverterZhCN } from './tools/colorConverter'
 
 // Deep merge function for Simplified Chinese translations
 function mergeZhCN(...translations: Record<string, any>[]): Record<string, any> {
@@ -59,5 +60,6 @@ export const zhCNTranslations = mergeZhCN(
   loremZhCN,
   wordCounterZhCN,
   stringUtilsZhCN,
-  qrcodeZhCN
+  qrcodeZhCN,
+  colorConverterZhCN
 )

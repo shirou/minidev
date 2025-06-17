@@ -176,6 +176,13 @@ export const TOOLS: Tool[] = [
     category: TOOL_CATEGORIES.GENERATOR,
     path: '/tools/wifi-qrcode-generator',
   },
+  {
+    id: 'color-converter',
+    name: 'Color Converter',
+    description: 'Convert colors between HEX, RGB, HSL, HSV, and CMYK formats',
+    category: TOOL_CATEGORIES.CONVERTER,
+    path: '/tools/color-converter',
+  },
 ]
 
 export const getToolsByCategory = (category: string) => 

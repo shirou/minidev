@@ -27,6 +27,7 @@ import LoremIpsumGeneratorPage from '@/pages/tools/lorem-ipsum-generator'
 import WordCounterPage from '@/pages/tools/word-counter'
 import StringUtilitiesPage from '@/pages/tools/string-utilities'
 import WiFiQRCodeGeneratorPage from '@/pages/tools/wifi-qrcode-generator'
+import ColorConverterPage from '@/pages/tools/color-converter'
 
 export const router = createBrowserRouter([
   {
@@ -135,6 +136,10 @@ export const router = createBrowserRouter([
           {
             path: 'wifi-qrcode-generator',
             element: <WiFiQRCodeGeneratorPage />,
+          },
+          {
+            path: 'color-converter',
+            element: <ColorConverterPage />,
           },
         ],
       },

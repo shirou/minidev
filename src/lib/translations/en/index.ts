@@ -19,6 +19,7 @@ import { loremEn } from './tools/lorem'
 import { wordCounterEn } from './tools/wordCounter'
 import { stringUtilsEn } from './tools/stringUtils'
 import { qrcodeEn } from './tools/qrcode'
+import { colorConverterEn } from './tools/colorConverter'
 
 // Deep merge function for English translations
 function mergeEn(...translations: Record<string, any>[]): Record<string, any> {
@@ -59,5 +60,6 @@ export const enTranslations = mergeEn(
   loremEn,
   wordCounterEn,
   stringUtilsEn,
-  qrcodeEn
+  qrcodeEn,
+  colorConverterEn
 )

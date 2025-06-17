@@ -133,6 +133,10 @@ export const commonZhCN = {
     "wifi-qrcode-generator": {
       name: "WiFi 二维码生成器",
       description: "为 WiFi、URL、电子邮件等生成二维码"
+    },
+    "color-converter": {
+      name: "颜色转换器",
+      description: "在HEX、RGB、HSL、HSV和CMYK格式之间转换颜色"
     }
   }
 }

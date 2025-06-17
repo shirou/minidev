@@ -133,6 +133,10 @@ export const commonJa = {
     "wifi-qrcode-generator": {
       name: "WiFi QRコード生成",
       description: "WiFi、URL、メールなどのQRコードを生成"
+    },
+    "color-converter": {
+      name: "カラーコンバーター",
+      description: "HEX、RGB、HSL、HSV、CMYKフォーマット間でカラーを変換"
     }
   }
 }

@@ -133,6 +133,10 @@ export const commonEn = {
     "wifi-qrcode-generator": {
       name: "WiFi QR Code Generator",
       description: "Generate QR codes for WiFi, URLs, emails, and more"
+    },
+    "color-converter": {
+      name: "Color Converter",
+      description: "Convert colors between HEX, RGB, HSL, HSV, and CMYK formats"
     }
   }
 }
